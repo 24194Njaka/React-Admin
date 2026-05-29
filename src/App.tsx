@@ -1,11 +1,14 @@
-import { Admin, Resource, ListGuesser, ShowGuesser } from "react-admin";
-import { Layout } from "./Layout";
-import { UserList } from "./users";
-import { dataProvider } from "./dataProvider";
+import { Admin, Resource } from "react-admin";
+import jsonServerProvider from "ra-data-json-server";
 
-export const App = () => (
-  <Admin layout={Layout} dataProvider={dataProvider}>
-    <Resource name="users" list={ListGuesser} show={ShowGuesser} />
-    <Resource name="users" list={UserList} />
-  </Admin>
-);
+const dataProvider = jsonServerProvider("http://localhost:3002");
+
+function App() {
+  return (
+    <Admin dataProvider={dataProvider}>
+      <Resource name="employees" />
+    </Admin>
+  );
+}
+
+export default App;
