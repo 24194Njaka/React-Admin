@@ -1,12 +1,11 @@
 import { Admin, Resource } from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
-
-const dataProvider = jsonServerProvider("http://localhost:3002");
+import { dataProvider } from "./dataProvider";
+import { EmployeeList } from "./employees/EmployeeList";
 
 function App() {
   return (
     <Admin dataProvider={dataProvider}>
-      <Resource name="employees" />
+      <Resource name="employees" list={EmployeeList} />
     </Admin>
   );
 }
