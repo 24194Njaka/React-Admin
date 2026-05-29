@@ -1,5 +1,7 @@
 import jsonServerProvider from "ra-data-json-server";
 
-export const dataProvider = jsonServerProvider(
-  import.meta.env.VITE_JSON_SERVER_URL,
-);
+// URL directe de l'API simulée (json-server)
+const API_URL = "http://localhost:3002";
+
+// Export du dataProvider
+export const dataProvider = jsonServerProvider(API_URL);
